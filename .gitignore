@@ -1,4 +1,3 @@
-Library/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
@@ -50,3 +49,4 @@ Icon?
 ehthumbs.db
 [Tt]humbs.db
 [Dd]esktop.ini
+Library/
