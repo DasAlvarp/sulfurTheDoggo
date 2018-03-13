@@ -34,13 +34,9 @@ sysinfo.txt
 *.unitypackage
 
 
-
-# ===========================
-# Default Collab Ignore Rules
-# ===========================
-
-# OS Generated
-# ============
+# ============ #
+# OS Generated #
+# ============ #
 .DS_Store
 ._*
 .Spotlight-V100
