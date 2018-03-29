@@ -101,4 +101,20 @@ public class PlayerControl : MonoBehaviour
             charState = PlayerState.DODGESTART;
         }
     }
+
+    //"handling" damage
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.transform.tag == "Bullet")
+        {
+            if(charState != PlayerState.DODGING)
+            {
+                print("Damaged");
+            }
+            else
+            {
+                print("Dodged");
+            }
+        }
+    }
 }
