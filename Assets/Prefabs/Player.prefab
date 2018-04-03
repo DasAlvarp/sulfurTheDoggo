@@ -128,6 +128,7 @@ MonoBehaviour:
   dodgeSpeed: 10
   statelock: 0
   dodgeTime: 0.3
+  dodgeRecovery: 1
   damageInvul: 0.5
   playerHP: 3
   playerMat: {fileID: 2100000, guid: 814e305bad119e94386ee7a9b276d79f, type: 2}
