@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
         DODGESTART,
         DODGING,
         DODGEREC,
+        DAMAGED,
 	}
 
     //character states, in case we want to add stuff like a dash having invul, etc.
@@ -18,13 +19,15 @@ public class PlayerControl : MonoBehaviour
     public float speed;
     public float statelock = 0;
     public float dodgeTime = .3f;
+    public float damageInvul = .5f;
+
     public int playerHP = 3;
 
     public Material playerMat;
 
     public Color glowColor;
-    public Color dodging;
-    public Color invul;
+    public Color dodgeColor;
+    public Color invulColor;
 
     Rigidbody rigid;
     InputManager inputs;
@@ -55,6 +58,9 @@ public class PlayerControl : MonoBehaviour
             case PlayerState.DODGEREC:
                 DodgeRec();
                 break;
+            case PlayerState.DAMAGED:
+                TakeDamage();
+                break;
         }
 		
 	}
@@ -62,7 +68,7 @@ public class PlayerControl : MonoBehaviour
     //Set up movement for dodge. 
     void DodgeInit()
     {
-        playerMat.color = dodging;
+        playerMat.color = dodgeColor;
         charState = PlayerState.DODGING;
         statelock = dodgeTime;
 
@@ -95,6 +101,19 @@ public class PlayerControl : MonoBehaviour
         charState = PlayerState.DEFAULT;
     }
 
+    //Damage taking and statelock
+    void TakeDamage()
+    {
+        playerMat.color = invulColor;
+        statelock -= Time.deltaTime;
+        Move();
+        if (statelock < 0f)
+        {
+            playerMat.color = glowColor;
+            charState = PlayerState.DEFAULT;
+        }
+    }
+
     //Standard movement
     void Move()
     {
@@ -118,7 +137,7 @@ public class PlayerControl : MonoBehaviour
     {
         if(other.transform.tag == "Bullet")
         {
-            if(charState != PlayerState.DODGING)
+            if(charState != PlayerState.DODGING && charState != PlayerState.DAMAGED)
             {
                 if (playerHP <= 0)
                 {
@@ -128,12 +147,14 @@ public class PlayerControl : MonoBehaviour
                 else
                 {
                     print("Damaged");
+                    statelock = damageInvul;
+                    charState = PlayerState.DAMAGED;
                     playerHP--;
                 }
             }
             else
             {
-                print("Dodged");
+                print("Dodged/Invul'd");
             }
         }
     }

@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1997302886608032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.99, z: 0}
+  m_LocalPosition: {x: -1.93, y: 0.99, z: 2.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -127,7 +127,12 @@ MonoBehaviour:
   speed: 6
   statelock: 0
   dodgeTime: 0.3
+  damageInvul: 0.5
   playerHP: 3
+  playerMat: {fileID: 2100000, guid: 814e305bad119e94386ee7a9b276d79f, type: 2}
+  glowColor: {r: 0.9862069, g: 1, b: 0, a: 1}
+  dodgeColor: {r: 0.5724138, g: 1, b: 0, a: 1}
+  invulColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!136 &136449530987583958
 CapsuleCollider:
   m_ObjectHideFlags: 1
