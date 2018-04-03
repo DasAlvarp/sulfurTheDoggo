@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlayerControl : MonoBehaviour
     public float speed;
     public float statelock = 0;
     public float dodgeTime = .3f;
+    public int playerHP = 3;
 
     Rigidbody rigid;
     InputManager inputs;
@@ -109,7 +111,16 @@ public class PlayerControl : MonoBehaviour
         {
             if(charState != PlayerState.DODGING)
             {
-                print("Damaged");
+                if (playerHP <= 0)
+                {
+                    print("You are already dead");
+                    SceneManager.LoadScene(2);
+                }
+                else
+                {
+                    print("Damaged");
+                    playerHP--;
+                }
             }
             else
             {

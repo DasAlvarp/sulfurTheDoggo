@@ -110,4 +110,19 @@ public class LaserControl : MonoBehaviour
             _moveVec = value;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Enemy")
+        {
+            if (EnemyHP.enemyHP <= 0)
+            {
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                EnemyHP.enemyHP--;
+            }
+        }
+    }
 }
