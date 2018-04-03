@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charState: 0
   speed: 6
+  dodgeSpeed: 10
   statelock: 0
   dodgeTime: 0.3
   damageInvul: 0.5

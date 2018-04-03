@@ -17,6 +17,7 @@ public class PlayerControl : MonoBehaviour
     public PlayerState charState = PlayerState.DEFAULT;
 
     public float speed;
+    public float dodgeSpeed = 10f;
     public float statelock = 0;
     public float dodgeTime = .3f;
     public float damageInvul = .5f;
@@ -32,6 +33,9 @@ public class PlayerControl : MonoBehaviour
     Rigidbody rigid;
     InputManager inputs;
 
+    //dodge vector
+    private Vector3 _dodgeVec;
+
 
     // Use this for initialization
     void Start ()
@@ -44,6 +48,7 @@ public class PlayerControl : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        dodgeVector = dodgeVector;
         switch(charState)
         {
             case PlayerState.DEFAULT:
@@ -72,15 +77,7 @@ public class PlayerControl : MonoBehaviour
         charState = PlayerState.DODGING;
         statelock = dodgeTime;
 
-        //dodge to constant speed
-        if (rigid.velocity.magnitude > speed)
-        {
-            rigid.velocity = rigid.velocity.normalized * speed;
-        }
-        else
-        {
-            rigid.velocity = (new Vector3(inputs.GetAxis("Horizontal"), 0, inputs.GetAxis("Vertical"))).normalized * speed;
-        }
+        rigid.velocity = dodgeVector ;
     }
 
     //dodge animation and state
@@ -117,14 +114,7 @@ public class PlayerControl : MonoBehaviour
     //Standard movement
     void Move()
     {
-        if (rigid.velocity.magnitude > speed)
-        {
-            rigid.velocity = rigid.velocity.normalized * speed;
-        }
-        else
-        {
-            rigid.velocity = (new Vector3(inputs.GetAxis("Horizontal"), 0, inputs.GetAxis("Vertical"))) * speed;
-        }
+        rigid.velocity = (new Vector3(inputs.GetAxis("Horizontal"), 0, inputs.GetAxis("Vertical"))) * speed;
 
         if(Input.GetButtonDown("Dodge"))
         {
@@ -156,6 +146,29 @@ public class PlayerControl : MonoBehaviour
             {
                 print("Dodged/Invul'd");
             }
+        }
+    }
+
+
+    Vector3 dodgeVector
+    {
+        get
+        {
+            Vector3 move = new Vector3(inputs.GetAxis("Horizontal"), 0, inputs.GetAxis("Vertical")).normalized * dodgeSpeed;
+            if (move.magnitude < speed)
+            {
+                return _dodgeVec;
+            }
+            else
+            {
+                _dodgeVec = move;
+                return move;
+            }
+        }
+
+        set
+        {
+            _dodgeVec = value;
         }
     }
 }
