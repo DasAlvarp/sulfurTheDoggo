@@ -20,6 +20,12 @@ public class PlayerControl : MonoBehaviour
     public float dodgeTime = .3f;
     public int playerHP = 3;
 
+    public Material playerMat;
+
+    public Color glowColor;
+    public Color dodging;
+    public Color invul;
+
     Rigidbody rigid;
     InputManager inputs;
 
@@ -27,6 +33,7 @@ public class PlayerControl : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        playerMat.color = glowColor;
         rigid = GetComponent<Rigidbody>();
         inputs = GetComponent<InputManager>();
 	}
@@ -55,6 +62,7 @@ public class PlayerControl : MonoBehaviour
     //Set up movement for dodge. 
     void DodgeInit()
     {
+        playerMat.color = dodging;
         charState = PlayerState.DODGING;
         statelock = dodgeTime;
 
@@ -82,6 +90,7 @@ public class PlayerControl : MonoBehaviour
     //startup, recovery and dodge. If I were doing this in a project with a larger moveset, a spreadsheet would be doing the thinking here. Rn recover and start is 1f, but adding in those is pretty easy.
     void DodgeRec()
     {
+        playerMat.color = glowColor;
         rigid.velocity = Vector3.zero;
         charState = PlayerState.DEFAULT;
     }

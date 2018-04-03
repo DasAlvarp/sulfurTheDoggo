@@ -66,7 +66,7 @@ Shader "Hidden/MK/Glow/SelectiveRender"
 			{
 				UNITY_SETUP_INSTANCE_ID(i);
 				fixed4 glow = tex2D(_MKGlowTex, UnityStereoScreenSpaceUVAdjust(i.uv.xy, _MKGlowTex_ST));
-				glow.rgb *= (_MKGlowColor * _MKGlowPower);
+				glow.rgb *= (_Color * _MKGlowPower);//was _MKGlowColor
 				glow.a = _Color.a;
 				return glow;
 			}
@@ -163,7 +163,7 @@ Shader "Hidden/MK/Glow/SelectiveRender"
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
 				
 				fixed4 glow = tex2D(_MKGlowTex, IN.uv_MKGlowTex);
-				glow.rgb *= (_MKGlowColor * _MKGlowPower);
+				glow.rgb *= (_Color * _MKGlowPower);//was _MKGlowColor
 				glow.a = _Color.a;
 
 				color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
@@ -238,7 +238,7 @@ Shader "Hidden/MK/Glow/SelectiveRender"
 			{
 				UNITY_SETUP_INSTANCE_ID(i);
 				fixed4 glow = tex2D(_MKGlowTex, UnityStereoScreenSpaceUVAdjust(i.uv.xy, _MKGlowTex_ST));
-				glow.rgb *= (_MKGlowColor * _MKGlowPower);
+				glow.rgb *= (_Color * _MKGlowPower);//was _MKGlowColor
 				glow.a = _Color.a;
 				return glow;
 			}
