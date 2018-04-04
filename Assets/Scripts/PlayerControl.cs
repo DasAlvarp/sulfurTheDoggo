@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/* Author: Alvaro Gudiswitz
+ * Date Created: 3/ /2018
+ * Date Modified: 4/3/2018
+ * Modified By: Alvaro Gudiswitz
+ * Description: Player Control Behavior
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

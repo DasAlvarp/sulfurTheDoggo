@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/* Author: Alexander Tang
+ * Date Created: 3/31/2018
+ * Date Modified: 
+ * Modified By: Alexander Tang
+ * Description: Bomb Emitter behavior for enemy
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

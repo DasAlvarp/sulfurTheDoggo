@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/* Author: Alexander Tang
+ * Date Created: 3/31/2018
+ * Date Modified: 4/3/2018
+ * Modified By: Alexander Tang
+ * Description: Enemy Minion Behavior
+ */
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

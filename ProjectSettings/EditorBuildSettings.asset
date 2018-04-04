@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ThankYouScreen.unity
     guid: d1e16de84f4d25641ae815bee3c74661
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay.unity
+    guid: 59e924730dfa1244b80825fa1ea24800
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

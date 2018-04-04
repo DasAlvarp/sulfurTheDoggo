@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/* Author: Aric Hasting
+ * Date Created: //2018
+ * Date Modified: 
+ * Modified By: 
+ * Description: Spiral Emitter Behavior for enemy
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
