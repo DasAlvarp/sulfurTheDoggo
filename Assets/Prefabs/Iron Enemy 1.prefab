@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54476507704561216}
   - component: {fileID: 114992453140926172}
   - component: {fileID: 114042934791912018}
+  - component: {fileID: 114224583719835758}
   m_Layer: 0
   m_Name: Iron Enemy 1
   m_TagString: Enemy
@@ -128,7 +129,18 @@ MonoBehaviour:
   firing: 1
   rotationSpeed: 500
   bulletSpeed: 20
-  emissionRate: 0.25
+  emissionRate: 0.1
+--- !u!114 &114224583719835758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1485014271220774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a87ca23a51634c439585d64b89327da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114992453140926172
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,6 +1,6 @@
 ﻿/* Author: Alvaro Gudiswitz
  * Date Created: 3/ /2018
- * Date Modified: 4/4/2018
+ * Date Modified: 4/5/2018
  * Modified By: Alexander Tang
  * Description: Laser Mechanic Behavior
  */
@@ -122,13 +122,13 @@ public class LaserControl : MonoBehaviour
     {
         if (other.transform.tag == "Enemy")
         {
-            if (EnemyHP.enemyHP <= 0)
+            if (MinionMovement.enemyHP <= 0)
             {
                 Destroy(other.gameObject);
             }
             else
             {
-                EnemyHP.enemyHP--;
+                MinionMovement.enemyHP--;
             }
         }
         else if (other.transform.tag == "Boss")
@@ -138,7 +138,8 @@ public class LaserControl : MonoBehaviour
                 Destroy(other.gameObject);
                 if (EnemyHP.bossForm == 0)
                 {
-                    print("This isn't even my final form");
+                    print("This isn't even my final form, I will return");
+                    SceneManager.LoadScene(2);
                     EnemyHP.bossForm++;
                 }
                 else
