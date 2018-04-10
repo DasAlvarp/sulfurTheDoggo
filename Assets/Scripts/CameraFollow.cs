@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour {
 
 	public Transform player;
+    public Transform laser;
 
 	private float camY;
 
@@ -15,7 +16,7 @@ public class CameraFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 pos = player.position;
+		Vector3 pos = (player.position * 3 + laser.position) / 4;
 		pos.y = camY;
 		transform.position = pos;
 	}
