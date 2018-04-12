@@ -107,7 +107,7 @@ public class PlayerControl : MonoBehaviour
     //Damage taking and statelock
     void TakeDamage()
     {
-        playerMat.color = invulColor;
+        playerMat.color = invulColor;	
         statelock -= Time.deltaTime;
         Move();
         if (statelock < 0f)
@@ -145,7 +145,8 @@ public class PlayerControl : MonoBehaviour
                     print("Damaged");
                     statelock = damageInvul;
                     charState = PlayerState.DAMAGED;
-                    playerHP--;
+					GetComponent<AudioSource>().Play();
+					playerHP--;
                 }
             }
             else
