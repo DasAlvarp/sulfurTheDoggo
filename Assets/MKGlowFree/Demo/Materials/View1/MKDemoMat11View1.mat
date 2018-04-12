@@ -45,7 +45,7 @@ Material:
     - _RimPower: 3
     - _Shininess: 0.078125
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.24137974, g: 0, b: 1, a: 1}
     - _MKGlowColor: {r: 0.24137974, g: 0, b: 1, a: 1}
     - _MKGlowTexColor: {r: 1, g: 0.51724136, b: 0, a: 1}
     - _ReflectColor: {r: 1, g: 1, b: 1, a: 0.5}

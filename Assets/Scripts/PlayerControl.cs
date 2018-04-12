@@ -26,6 +26,7 @@ public class PlayerControl : MonoBehaviour
     public float dodgeSpeed = 10f;
     public float statelock = 0;
     public float dodgeTime = .3f;
+    public float dodgeRecovery = 1f;
     public float damageInvul = .5f;
 
     public int playerHP = 3;
@@ -93,6 +94,7 @@ public class PlayerControl : MonoBehaviour
         if (statelock < 0f)
         {
             charState = PlayerState.DODGEREC;
+            statelock = dodgeRecovery;
         }
     }
 
@@ -100,8 +102,12 @@ public class PlayerControl : MonoBehaviour
     void DodgeRec()
     {
         playerMat.color = glowColor;
-        rigid.velocity = Vector3.zero;
-        charState = PlayerState.DEFAULT;
+        statelock -= Time.deltaTime;
+        Move();
+        if (statelock < 0f)
+        {
+            charState = PlayerState.DEFAULT;
+        }
     }
 
     //Damage taking and statelock
@@ -122,7 +128,7 @@ public class PlayerControl : MonoBehaviour
     {
         rigid.velocity = (new Vector3(inputs.GetAxis("Horizontal"), 0, inputs.GetAxis("Vertical"))) * speed;
 
-        if(Input.GetButtonDown("Dodge"))
+        if(Input.GetButtonDown("Dodge") && charState != PlayerState.DODGEREC)
         {
             charState = PlayerState.DODGESTART;
         }

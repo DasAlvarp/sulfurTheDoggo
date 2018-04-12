@@ -155,5 +155,10 @@ public class LaserControl : MonoBehaviour
                 EnemyHP.bossHP--;
             }
         }
+		if (other.transform.tag == "Boss")
+		{
+			BossHP.HP--;
+			print ("Boss HP is: "+ BossHP.HP);
+		}
     }
 }
