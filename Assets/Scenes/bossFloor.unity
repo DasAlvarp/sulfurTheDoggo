@@ -1763,6 +1763,17 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1482434141}
+    - target: {fileID: 114065965660567940, guid: 672d97d77e9a6e040a05da8c0f53c5d1,
+        type: 2}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 4062929503963574, guid: bc892d82aaa8a9f45b2d7af4d139b0f0,
+        type: 2}
+    - target: {fileID: 114791846832206342, guid: 672d97d77e9a6e040a05da8c0f53c5d1,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1482434141}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 672d97d77e9a6e040a05da8c0f53c5d1, type: 2}
   m_IsPrefabParent: 0

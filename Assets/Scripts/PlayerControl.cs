@@ -139,6 +139,7 @@ public class PlayerControl : MonoBehaviour
                 {
                     print("You are already dead");
                     SceneManager.LoadScene(2);
+                    EnemyHP.bossHP = 7;
                 }
                 else
                 {

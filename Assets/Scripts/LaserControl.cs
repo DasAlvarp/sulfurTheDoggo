@@ -141,6 +141,7 @@ public class LaserControl : MonoBehaviour
                     print("This isn't even my final form, I will return");
                     SceneManager.LoadScene(2);
                     EnemyHP.bossForm++;
+                    EnemyHP.bossHP = 7;
                 }
                 else
                 {

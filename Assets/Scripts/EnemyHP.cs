@@ -10,6 +10,6 @@ using UnityEngine;
 
 public class EnemyHP : MonoBehaviour {
 
-    public static int bossHP = 10;
+    public static int bossHP = 7;
     public static int bossForm = 0;
 }
