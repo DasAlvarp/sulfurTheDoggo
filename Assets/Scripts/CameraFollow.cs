@@ -52,7 +52,7 @@ public class CameraFollow : MonoBehaviour {
         //if the camera is out of the range of effect
         if(zDist > 8 || xDist > 20)
         {
-            targetSize = Mathf.Max(zDist, xDist);
+            targetSize = Mathf.Max(zDist * 7 / 8, xDist * 9 / 16);
 
             print("why");
             //targetSize = Mathf.Sqrt((player.position - laser.position).magnitude) + minSize;
