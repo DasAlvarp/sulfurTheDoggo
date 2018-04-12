@@ -643,6 +643,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1582052100}
   laser: {fileID: 306020931}
+  cam: {fileID: 886998511}
+--- !u!20 &886998511 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20856671549739198, guid: 1c880ff5d66febf4a9b4abd7e00aa45b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2021816667}
 --- !u!1 &1069681981
 GameObject:
   m_ObjectHideFlags: 0
