@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Created by Aric Hasting 3-29-18
+ * Desc: camera follows player and laser
+ * Modified: Alvaro Gudiswitz 4-17-18
+ */
+
 public class CameraFollow : MonoBehaviour {
 
 	public Transform player;
@@ -52,13 +57,11 @@ public class CameraFollow : MonoBehaviour {
         //if the camera is out of the range of effect
         if(zDist > 8 || xDist > 20)
         {
-            targetSize = Mathf.Max(zDist * 7 / 8, xDist * 9 / 16);
+            targetSize = Mathf.Max(zDist * 7 / 8, xDist * 7/16);
 
-            print("why");
             //targetSize = Mathf.Sqrt((player.position - laser.position).magnitude) + minSize;
             if(targetSize < minSize)
             {
-                print("procx");
                 targetSize = minSize;
             }
         }
@@ -67,14 +70,28 @@ public class CameraFollow : MonoBehaviour {
             targetSize = minSize;
         }
 
+        if (xDist > 20)
+        {
+            if (targetSize > cam.orthographicSize)
+            {
+                cam.orthographicSize += .15f;
+            }
+            if (targetSize < cam.orthographicSize)
+            {
+                cam.orthographicSize -= .15f;
+            }
+        }
+        else if(zDist > 8)
+        {
+            if (targetSize > cam.orthographicSize)
+            {
+                cam.orthographicSize += .25f;
+            }
+            if (targetSize < cam.orthographicSize)
+            {
+                cam.orthographicSize -= .25f;
+            }
+        }
 
-        if(targetSize > cam.orthographicSize)
-        {
-            cam.orthographicSize += .2f;
-        }
-        if(targetSize < cam.orthographicSize)
-        {
-            cam.orthographicSize -= .2f;
-        }
 	}
 }
