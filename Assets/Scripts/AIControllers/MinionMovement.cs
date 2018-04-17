@@ -1,9 +1,16 @@
-﻿using System.Collections;
+﻿/* Author: Alexander Tang
+ * Date Created: 3/31/2018
+ * Date Modified: 4/5/2018
+ * Modified By: Alexander Tang
+ * Description: Enemy Minion Behavior
+ */
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MinionMovement : MonoBehaviour {
 
+    public static int enemyHP = 0;
     public float moveForce = 0f;
     private Rigidbody rbody;
     public Vector3 moveDir;

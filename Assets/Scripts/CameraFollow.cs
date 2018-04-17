@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/* Author: Alvaro Gudiswitz
+ * Date Created: 3/ /2018
+ * Date Modified:
+ * Modified By: Alvaro Gudiswitz
+ * Description: Basic Player Camera Behavior
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
