@@ -21,7 +21,7 @@ public class MenuNav : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        buttonsToSelect = new Button[3, 2];
+        buttonsToSelect = new Button[Mathf.Max(buttonsRight.Length, buttonsLeft.Length), 2];
         gameObject.AddComponent<DpadConversion>();
 
         //fill buttons
