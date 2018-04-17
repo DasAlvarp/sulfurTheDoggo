@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class MinionMovement : MonoBehaviour {
 
-    public static int enemyHP = 4;
+    public static int enemyHP = 0;
     public float moveForce = 0f;
     private Rigidbody rbody;
     public Vector3 moveDir;
