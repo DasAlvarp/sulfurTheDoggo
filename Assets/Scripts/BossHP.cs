@@ -12,6 +12,7 @@ public class BossHP : MonoBehaviour {
 	public GameObject[] stages = new GameObject[4];
 	// Use this for initialization
 	void Start () {
+        HP = 15;
 		stage1 = true;
 		stage2 = false;
 		stage3 = false;

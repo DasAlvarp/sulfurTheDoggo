@@ -7,7 +7,8 @@ public class CircleBurstDirected : EnemyShot {
 	public float bulletSpeed;
 	public int perCircle;
 	public float shotDelay;
-	public int wise;
+
+	public int direction;
 
 	public int spiraling;
 
@@ -21,7 +22,7 @@ public class CircleBurstDirected : EnemyShot {
 
 			float altAngle = (2 * Mathf.PI) / (float)perCircle / (float)spiraling * alt;
 
-			Vector3 bulletVec = AngleMath.AngleToVector3(wise*(((2 * Mathf.PI) / (float)perCircle) * i + altAngle));
+			Vector3 bulletVec = AngleMath.AngleToVector3(direction*(((2 * Mathf.PI) / (float)perCircle) * i + altAngle));
 			bulletVec = bulletVec * bulletSpeed;
 
 			bullets[i].transform.position = transform.position;

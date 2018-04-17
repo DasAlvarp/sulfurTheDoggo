@@ -7,6 +7,8 @@ public class BurstCircleEmmiter : EnemyShot {
     public float bulletSpeed;
     public int perCircle;
     public float shotDelay;
+    [Header("Direction is clock(-1) or counterclock(1)")]
+    public int direction = 1;
 
     public int spiraling;
     [Header("the delay is dom%num < comp")]
@@ -26,7 +28,7 @@ public class BurstCircleEmmiter : EnemyShot {
 
             float altAngle = (2 * Mathf.PI) / (float)perCircle / (float)spiraling * alt;
 
-            Vector3 bulletVec = AngleMath.AngleToVector3(((2 * Mathf.PI) / (float)perCircle) * i + altAngle);
+            Vector3 bulletVec = AngleMath.AngleToVector3(direction*(((2 * Mathf.PI) / (float)perCircle) * i + altAngle));
             bulletVec = bulletVec * bulletSpeed;
 
             bullets[i].transform.position = transform.position;
