@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -682,6 +682,7 @@ GameObject:
   - component: {fileID: 2011048780}
   - component: {fileID: 2011048779}
   - component: {fileID: 2011048778}
+  - component: {fileID: 2011048782}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -767,3 +768,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2011048782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2011048777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c7a9018daf37141abc94c8130e49a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastMenu: 
+  buttonsRight:
+  - {fileID: 1420350090}
+  buttonsLeft:
+  - {fileID: 1420350090}
