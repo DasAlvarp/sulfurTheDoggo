@@ -1,15 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * Author: Javier Bernal    
+ * Date Created: 
+ * Date Modified: 
+ * Description: This script controls a boss's hp as well as the progress into
+ *              different stages of the boss.
+ */
 public class BossHP : MonoBehaviour {
 
-	public static int HP = 15;
-	private bool stage1;
-	private bool stage2;
+    public static int HP = 15;  //boss default HP
+	private bool stage1;        //stage1-4 are set true if that stage is active. only one is true at a time
+	private bool stage2;        
 	private bool stage3;
 	private bool stage4;
-	public GameObject[] stages = new GameObject[4];
+	public GameObject[] stages = new GameObject[5];
 	// Use this for initialization
 	void Start () {
         HP = 15;
@@ -22,6 +28,7 @@ public class BossHP : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        // when the boss takes enough damage check and see if the stage needs to change
 		if (HP <= 10 && stage1) {
 			stage1 = false;
 			stage2 = true;
@@ -37,8 +44,12 @@ public class BossHP : MonoBehaviour {
 			stage4 = true;
 			SelectStage (3);
 		}
+        else if(HP<=0 && stage4)
+        {
+            stages[4].SetActive(true); 
+        }
 	}
-
+    // Use this to change the stage to the appropriate one.
 	public void SelectStage(int stg){
 		for (int i = 0; i < stages.Length; i++) {
 			if (i == stg) {
@@ -48,4 +59,5 @@ public class BossHP : MonoBehaviour {
 			}
 		}
 	}
+    
 }
