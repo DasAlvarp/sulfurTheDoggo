@@ -10,22 +10,29 @@ public class LineEmitter : EnemyShot {
 	public float bulletSpeed;
 
 	public float fireRate;
+	public float fireOffset;
 
-	public Transform bulletPrefab;
+	private bool isOffset = false;
 	
 	public override void Fire() {
+		float radAngle = Mathf.Deg2Rad * lineAngle;
 		for (int i = 0; i < bulletsPerLine; i++) {
-			Transform newBullet = Instantiate(bulletPrefab);
-			Vector3 pos = (lineWidth / bulletsPerLine) * i * new Vector3(Mathf.Cos(lineAngle), 0, Mathf.Sin(lineAngle));
+			Transform newBullet = Instantiate(bullet);
+			Vector3 pos = transform.forward + (lineWidth / bulletsPerLine) * (i - bulletsPerLine/2) * new Vector3(Mathf.Cos(radAngle), 0, Mathf.Sin(radAngle));
 			pos = transform.position + pos;
 			newBullet.position = pos;
-			newBullet.GetComponent<UpdateBullet>().movement = new Vector3(Mathf.Cos(lineAngle + 90), 0, Mathf.Sin(lineAngle + 90)) * bulletSpeed;
+			newBullet.GetComponent<UpdateBullet>().movement = transform.forward + new Vector3(Mathf.Cos(radAngle + 0.5f * Mathf.PI), 0, Mathf.Sin(radAngle + 0.5f * Mathf.PI)) * bulletSpeed;
 		}
 	}
 
 	public override bool FireRate() {
 		count += Time.deltaTime;
-		if (count > fireRate) {
+		if (count > fireOffset && !isOffset && fireOffset != 0) {
+			isOffset = true;
+			count = 0;
+			return false;
+		}
+		if (count > fireRate && (isOffset || fireOffset == 0)) {
 			count = 0;
 			return true;
 		}
