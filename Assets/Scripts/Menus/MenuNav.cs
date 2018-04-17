@@ -53,7 +53,15 @@ public class MenuNav : MonoBehaviour
 
         if (Input.GetButtonDown("MenuBack"))
         {
-            SceneManager.LoadScene(lastMenu);
+            if (lastMenu != "")
+            {
+                SceneManager.LoadScene(lastMenu);
+            }
+            else
+            {
+                print("exit");
+                Application.Quit();
+            }
         }
     }
 }
