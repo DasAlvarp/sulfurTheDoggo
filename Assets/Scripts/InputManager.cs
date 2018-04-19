@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+ * Created by Alvaro Gudiswitz 3-29-18
+ * Uses correct controller for joystick inputs
+ * Update 4-17-18
+ */
 public class InputManager : MonoBehaviour {
 
     //type of controller:
