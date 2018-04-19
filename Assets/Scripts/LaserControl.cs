@@ -9,6 +9,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/* Created 3-13-18 by Alvaro Gudiswitz
+ * Controls laser
+ * Updated 4-17-18
+ */
+
 public class LaserControl : MonoBehaviour
 {
 	public enum LaserStates
@@ -54,7 +59,7 @@ public class LaserControl : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if (laserState == LaserStates.TRAVEL && Input.GetButtonDown("Fire1")) {
+		if (laserState == LaserStates.TRAVEL && Input.GetButtonDown("Return")) {
 			timeSinceReturn = 0f;
 			laserState = LaserStates.RETURNED;
 			enableLaser(false);

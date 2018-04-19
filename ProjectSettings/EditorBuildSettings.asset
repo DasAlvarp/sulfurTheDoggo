@@ -4,22 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/TitleMenu.unity
-    guid: 40de314122c6037428443eda405058f7
-  - enabled: 1
-    path: Assets/Scenes/bossFloor.unity
-    guid: 2f91a22fc4e07104897b1e46501cd334
-  - enabled: 1
-    path: Assets/Scenes/EndScreen.unity
-    guid: a78453c134a7410469f0cce146c55979
-  - enabled: 1
-    path: Assets/Scenes/ThankYouScreen.unity
-    guid: d1e16de84f4d25641ae815bee3c74661
-  - enabled: 1
-    path: Assets/Scenes/HowToPlay.unity
-    guid: 59e924730dfa1244b80825fa1ea24800
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  m_Scenes: []
