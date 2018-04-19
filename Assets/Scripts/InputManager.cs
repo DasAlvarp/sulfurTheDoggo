@@ -39,6 +39,7 @@ public class InputManager : MonoBehaviour {
                 break;
             }
         }
+        print(controllerType);
     }
 	
 	// Returns axis given axis.
@@ -73,7 +74,7 @@ public class InputManager : MonoBehaviour {
                         return 0;
                 }
             default:
-                return Input.GetAxis(axis);
+                return Input.GetAxisRaw(axis);
         }
     }
 }
