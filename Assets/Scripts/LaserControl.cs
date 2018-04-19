@@ -1,6 +1,13 @@
-﻿using System.Collections;
+﻿/* Author: Alvaro Gudiswitz
+ * Date Created: 3/ /2018
+ * Date Modified: 4/5/2018
+ * Modified By: Alexander Tang
+ * Description: Laser Mechanic Behavior
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /* Created 3-13-18 by Alvaro Gudiswitz
  * Controls laser
@@ -120,13 +127,37 @@ public class LaserControl : MonoBehaviour
     {
         if (other.transform.tag == "Enemy")
         {
-            if (EnemyHP.enemyHP <= 0)
+            if (MinionMovement.enemyHP <= 0)
             {
                 Destroy(other.gameObject);
             }
             else
             {
-                EnemyHP.enemyHP--;
+                MinionMovement.enemyHP--;
+            }
+        }
+        else if (other.transform.tag == "Boss")
+        {
+            if (EnemyHP.bossHP <= 0)
+            {
+                Destroy(other.gameObject);
+                if (EnemyHP.bossForm == 0)
+                {
+                    print("This isn't even my final form, I will return");
+                    SceneManager.LoadScene(2);
+                    EnemyHP.bossForm++;
+                    EnemyHP.bossHP = 7;
+                }
+                else
+                {
+                    print("You Beat Gallium");
+                    EnemyHP.bossForm--;
+                    SceneManager.LoadScene(2);
+                }
+            }
+            else
+            {
+                EnemyHP.bossHP--;
             }
         }
 		if (other.transform.tag == "Boss")

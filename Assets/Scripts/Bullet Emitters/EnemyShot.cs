@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/* Author: Aric Hasting
+ * Date Created: 3/ /2018
+ * Date Modified: 
+ * Modified By: 
+ * Description: Abstract class for enemy and bullet behavior
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

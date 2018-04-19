@@ -1,16 +1,20 @@
-﻿/* Author: Aric Hasting
- * Date Created: //2018
+﻿/* Author: Alexander Tang
+ * Date Created: 4/5/2018
  * Date Modified: 
  * Modified By: 
- * Description: Spiral Emitter Behavior for enemy
+ * Description: Spiral Emitter but only within a set radius
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpiralEmitter : EnemyShot {
+public class SpiralOnEnter : EnemyShot {
 
-	public float rotationSpeed;
+    public Transform player;
+
+    public float searchRadius = 50f;
+
+    public float rotationSpeed;
 	public float bulletSpeed;
 	public float emissionRate;
 
@@ -37,8 +41,8 @@ public class SpiralEmitter : EnemyShot {
 
 	private void Update() {
 		rotation += FirePattern();
-
-		if (FireRate()) {
+        FireOnEnter();
+		if (FireRate() && firing) {
 			Fire();
 		}
 	}
@@ -60,5 +64,18 @@ public class SpiralEmitter : EnemyShot {
 
         
         newBull.GetComponent<UpdateBullet>().movement = movement * bulletSpeed;
+    }
+
+    public void FireOnEnter()
+    {
+        float playerDistance = Vector3.Distance(transform.position, player.position);
+        if (playerDistance < searchRadius)
+        {
+            firing = true;
+        }
+        else
+        {
+            firing = false;
+        }
     }
 }

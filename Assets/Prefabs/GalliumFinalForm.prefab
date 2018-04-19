@@ -22,10 +22,13 @@ GameObject:
   - component: {fileID: 33805992475096662}
   - component: {fileID: 135088814520479324}
   - component: {fileID: 23006104374048826}
+  - component: {fileID: 114065965660567940}
   - component: {fileID: 114347139944903016}
+  - component: {fileID: 54494598027559506}
+  - component: {fileID: 114791846832206342}
   m_Layer: 0
   m_Name: GalliumFinalForm
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +87,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1884727942162704}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54494598027559506
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884727942162704}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &114065965660567940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884727942162704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07af5a03799684a44ba0e992d2bf1af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 4951316702503476, guid: bd2a699dab0a30a4da27c5510d13423b, type: 2}
+  firing: 1
+  player: {fileID: 0}
+  searchRadius: 25
+  rotationSpeed: 500
+  bulletSpeed: 5
+  emissionRate: 0.05
 --- !u!114 &114347139944903016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,12 +131,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a971d452fc01b24f8a591866b2ee357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 4062929503963574, guid: bc892d82aaa8a9f45b2d7af4d139b0f0, type: 2}
+  bullet: {fileID: 4951316702503476, guid: bd2a699dab0a30a4da27c5510d13423b, type: 2}
   firing: 1
-  bulletSpeed: 40
-  perCircle: 50
+  bulletSpeed: 30
+  perCircle: 5
   shotDelay: 2
-  spiraling: 100
+  spiraling: 500
+--- !u!114 &114791846832206342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884727942162704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f32812cce7bee0498a42e3046ee1551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  galliumState: 0
+  player: {fileID: 0}
+  searchRadius: 50
+  speed: 9
+  moveDir: {x: 0, y: 0, z: 0}
+  wall:
+    serializedVersion: 2
+    m_Bits: 1024
+  distFromWall: 10
 --- !u!135 &135088814520479324
 SphereCollider:
   m_ObjectHideFlags: 1

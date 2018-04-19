@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/* Author: Alvaro Gudiswitz
+ * Date Created: 3/ /2018
+ * Date Modified:
+ * Modified By: Alvaro Gudiswitz
+ * Description: Input Manager for Controllers
+ *              and Keyboard
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
