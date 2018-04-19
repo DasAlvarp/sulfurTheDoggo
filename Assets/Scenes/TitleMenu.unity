@@ -159,7 +159,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 115953782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1ff60e4303f1ab4fbfa7cf55ec3229c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ca0daa51f256004b874f108f147a18a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &115953785
@@ -202,14 +202,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 115953784}
-        m_MethodName: LoadByIndex
-        m_Mode: 3
+        m_MethodName: LoadByName
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: HowToPlay
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -591,9 +591,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1165575880}
-        m_MethodName: LoadByIndex
-        m_Mode: 3
+      - m_Target: {fileID: 115953784}
+        m_MethodName: quit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1165575875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1ff60e4303f1ab4fbfa7cf55ec3229c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ca0daa51f256004b874f108f147a18a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1487025689
@@ -881,14 +881,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1561106244}
-        m_MethodName: LoadByIndex
-        m_Mode: 3
+        m_MethodName: LoadByName
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: bossFloor
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -934,7 +934,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1561106239}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1ff60e4303f1ab4fbfa7cf55ec3229c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ca0daa51f256004b874f108f147a18a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2018212969
