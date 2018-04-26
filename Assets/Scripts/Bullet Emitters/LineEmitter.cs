@@ -14,12 +14,13 @@ public class LineEmitter : EnemyShot {
 	public Transform bulletPrefab;
 	
 	public override void Fire() {
+		float radAngle = lineAngle * Mathf.Deg2Rad;
 		for (int i = 0; i < bulletsPerLine; i++) {
 			Transform newBullet = Instantiate(bulletPrefab);
-			Vector3 pos = (lineWidth / bulletsPerLine) * i * new Vector3(Mathf.Cos(lineAngle), 0, Mathf.Sin(lineAngle));
+			Vector3 pos = (lineWidth / bulletsPerLine) * (i - bulletsPerLine/2) * new Vector3(Mathf.Cos(radAngle), 0, Mathf.Sin(radAngle));
 			pos = transform.position + pos;
 			newBullet.position = pos;
-			newBullet.GetComponent<UpdateBullet>().movement = new Vector3(Mathf.Cos(lineAngle + 90), 0, Mathf.Sin(lineAngle + 90)) * bulletSpeed;
+			newBullet.GetComponent<UpdateBullet>().movement = new Vector3(Mathf.Cos(radAngle + 90 * Mathf.Deg2Rad), 0, Mathf.Sin(radAngle + 90 * Mathf.Deg2Rad)) * bulletSpeed;
 		}
 	}
 
