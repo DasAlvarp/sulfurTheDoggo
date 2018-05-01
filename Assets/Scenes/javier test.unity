@@ -1302,6 +1302,8 @@ MonoBehaviour:
   player: {fileID: 565229460}
   laser: {fileID: 1598189899}
   cam: {fileID: 1556315086}
+  minSize: 24
+  maxSize: 20
 --- !u!4 &1598189899 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4456653122320012, guid: 14f7623120c953d4a94dbe8b04b2be82,

@@ -21,8 +21,8 @@ public class CameraFollow : MonoBehaviour {
 
 	private float camY;
 
-    private float minSize = 12;
-    private float maxSize = 20;
+    public float minSize = 12;
+    public float maxSize = 20;
 
 	// Use this for initialization
 	void Start () {
