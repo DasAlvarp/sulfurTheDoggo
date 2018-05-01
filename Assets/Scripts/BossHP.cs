@@ -16,6 +16,7 @@ public class BossHP : MonoBehaviour {
 	private bool stage2;        
 	private bool stage3;
 	private bool stage4;
+    private bool stage5;
     public float speed = 1;
     public GameObject prompt;
 
@@ -25,10 +26,12 @@ public class BossHP : MonoBehaviour {
 	public GameObject[] stages = new GameObject[5];
 	// Use this for initialization
 	void Start () {
+        prompt.SetActive(false);
 		stage1 = true;
 		stage2 = false;
 		stage3 = false;
 		stage4 = false;
+        stage5 = false;
 		SelectStage (0);
 	}
 	
@@ -36,31 +39,36 @@ public class BossHP : MonoBehaviour {
 	void Update () {
         print(HP);
         // when the boss takes enough damage check and see if the stage needs to change
-        if (HP <= 4 && stage1)
+        if (HP <= 5 && stage1)
         {
             stage1 = false;
             stage2 = true;
             SelectStage(1);
             print("st1");
         }
-        else if (HP <= 3 && stage2)
+        else if (HP <= 4 && stage2)
         {
             stage2 = false;
             stage3 = true;
             print("st2");
             SelectStage(2);
         }
-        else if (HP <= 2 && stage3)
+        else if (HP <= 3 && stage3)
         {
             stage3 = false;
             stage4 = true;
             print("st3");
             SelectStage(3);
         }
-        else if (HP <= 1 && stage4)
+        else if (HP <= 2 && stage4)
         {
             print("st4");
-            stages[4].SetActive(true);
+            SelectStage(4);
+        }
+        else if(HP <= 1 && stage5)
+        {
+            print("st5");
+            stages[5].SetActive(true);
         }
 
         if(canBeHit)
