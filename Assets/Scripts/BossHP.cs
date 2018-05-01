@@ -87,6 +87,11 @@ public class BossHP : MonoBehaviour {
 	}
     // Use this to change the stage to the appropriate one.
 	public void SelectStage(int stg){
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach(GameObject bullet in bullets)
+        {
+            Destroy(bullet);
+        }
 		for (int i = 0; i < stages.Length; i++) {
 			if (i == stg) {
 				stages [i].SetActive (true);

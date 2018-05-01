@@ -264,6 +264,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 143429845}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!135 &319844220 stripped
+SphereCollider:
+  m_PrefabParentObject: {fileID: 135440152422286574, guid: 14f7623120c953d4a94dbe8b04b2be82,
+    type: 2}
+  m_PrefabInternal: {fileID: 460239096}
 --- !u!1 &330105566
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,6 +505,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8b98ba2641cbe9141a038ee419b27b68, type: 2}
+    - target: {fileID: 114628746039149460, guid: 14f7623120c953d4a94dbe8b04b2be82,
+        type: 2}
+      propertyPath: hitbox
+      value: 
+      objectReference: {fileID: 319844220}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14f7623120c953d4a94dbe8b04b2be82, type: 2}
   m_IsPrefabParent: 0

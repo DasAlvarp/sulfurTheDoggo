@@ -33,7 +33,7 @@ public class PlayerControl : MonoBehaviour
 
 	public Vector3 resetPoint;
 
-	public int playerHP = 3;
+	public int playerHP = 2;
 
     public Material playerMat;
 
@@ -145,6 +145,7 @@ public class PlayerControl : MonoBehaviour
 		playerMat.color = glowColor;
 		resetPoint.y = transform.position.y;
 		rigid.velocity = (resetPoint - transform.position).normalized * resetSpeed;
+        playerHP = 2;
 
 		if (Vector3.Distance(transform.position, resetPoint) < 2) 
 		{
