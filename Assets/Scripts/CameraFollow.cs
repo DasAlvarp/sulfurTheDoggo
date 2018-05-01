@@ -80,11 +80,11 @@ public class CameraFollow : MonoBehaviour {
         {
             if (targetSize > cam.orthographicSize)
             {
-                cam.orthographicSize += .15f;
+                cam.orthographicSize += .25f;
             }
             if (targetSize < cam.orthographicSize)
             {
-                cam.orthographicSize -= .15f;
+                cam.orthographicSize -= .25f;
             }
         }
         else if(zDist > 8)
@@ -98,6 +98,17 @@ public class CameraFollow : MonoBehaviour {
                 cam.orthographicSize -= .25f;
             }
         }
+        else
+        {
+            if (targetSize > cam.orthographicSize)
+            {
+                cam.orthographicSize += .25f;
+            }
+            if (targetSize < cam.orthographicSize)
+            {
+                cam.orthographicSize -= .25f;
+            }
+        }
 
-	}
+    }
 }
