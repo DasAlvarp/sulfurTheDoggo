@@ -162,6 +162,21 @@ Prefab:
       propertyPath: dodgeSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114843276712199868, guid: a5e419d6f715a3d41af56763c600ee24,
+        type: 2}
+      propertyPath: resetPoint.x
+      value: -1.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 114843276712199868, guid: a5e419d6f715a3d41af56763c600ee24,
+        type: 2}
+      propertyPath: resetPoint.y
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 114843276712199868, guid: a5e419d6f715a3d41af56763c600ee24,
+        type: 2}
+      propertyPath: resetPoint.z
+      value: -14.21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5e419d6f715a3d41af56763c600ee24, type: 2}
   m_IsPrefabParent: 0
