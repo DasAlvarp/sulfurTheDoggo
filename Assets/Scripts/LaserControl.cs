@@ -136,34 +136,5 @@ public class LaserControl : MonoBehaviour
                 MinionMovement.enemyHP--;
             }
         }
-        else if (other.transform.tag == "Boss")
-        {
-            if (EnemyHP.bossHP <= 0)
-            {
-                Destroy(other.gameObject);
-                if (EnemyHP.bossForm == 0)
-                {
-                    print("This isn't even my final form, I will return");
-                    SceneManager.LoadScene(2);
-                    EnemyHP.bossForm++;
-                    EnemyHP.bossHP = 7;
-                }
-                else
-                {
-                    print("You Beat Gallium");
-                    EnemyHP.bossForm--;
-                    SceneManager.LoadScene(2);
-                }
-            }
-            else
-            {
-                EnemyHP.bossHP--;
-            }
-        }
-		if (other.transform.tag == "Boss")
-		{
-			BossHP.HP--;
-			print ("Boss HP is: "+ BossHP.HP);
-		}
     }
 }
