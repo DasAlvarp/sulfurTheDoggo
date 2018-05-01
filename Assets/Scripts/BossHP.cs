@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 /*
  * Author: Javier Bernal    
  * Date Created: 
@@ -16,6 +17,7 @@ public class BossHP : MonoBehaviour {
 	private bool stage3;
 	private bool stage4;
     public float speed = 1;
+    public GameObject prompt;
 
     public Transform player;
 
@@ -89,6 +91,7 @@ public class BossHP : MonoBehaviour {
         if (other.transform.tag == "Player")
         {
             player = other.transform;
+            prompt.SetActive(true);
             canBeHit = true;
         }
     }
@@ -98,6 +101,7 @@ public class BossHP : MonoBehaviour {
         if(collision.transform.tag == "Player")
         {
             canBeHit = false;
+            prompt.SetActive(false);
         }
     }
 }
