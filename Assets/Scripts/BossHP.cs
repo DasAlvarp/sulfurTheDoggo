@@ -62,6 +62,8 @@ public class BossHP : MonoBehaviour {
         }
         else if (HP <= 2 && stage4)
         {
+            stage4 = false;
+            stage5 = true;
             print("st4");
             SelectStage(4);
         }
