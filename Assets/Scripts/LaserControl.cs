@@ -47,6 +47,8 @@ public class LaserControl : MonoBehaviour
 	private Transform center;
     private InputManager inputs;
 
+    public Collider hitbox;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -80,12 +82,16 @@ public class LaserControl : MonoBehaviour
                 print("error - invalid input");
                 break;
         }
+
 		timeSinceReturn += Time.deltaTime;
 	}
 
 	private void enableLaser(bool enable) {
 		GetComponent<TrailRenderer>().enabled = enable;
-		if (!enable) {
+        hitbox.enabled = enable;
+
+
+        if (!enable) {
 			GetComponent<TrailRenderer>().Clear();
 		}
 	}
