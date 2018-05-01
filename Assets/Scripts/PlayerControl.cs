@@ -17,6 +17,7 @@ public class PlayerControl : MonoBehaviour
         DODGING,
         DODGEREC,
         DAMAGED,
+		HITBOSS,
 	}
 
     //character states, in case we want to add stuff like a dash having invul, etc.
@@ -24,12 +25,15 @@ public class PlayerControl : MonoBehaviour
 
     public float speed;
     public float dodgeSpeed = 10f;
+	public float resetSpeed = 20f;
     public float statelock = 0;
     public float dodgeTime = .3f;
     public float dodgeRecovery = 1f;
     public float damageInvul = .5f;
 
-    public int playerHP = 3;
+	public Vector3 resetPoint;
+
+	public int playerHP = 3;
 
     public Material playerMat;
 
@@ -42,7 +46,6 @@ public class PlayerControl : MonoBehaviour
 
     //dodge vector
     private Vector3 _dodgeVec;
-
 
     // Use this for initialization
     void Start ()
@@ -73,6 +76,9 @@ public class PlayerControl : MonoBehaviour
             case PlayerState.DAMAGED:
                 TakeDamage();
                 break;
+			case PlayerState.HITBOSS:
+				MoveToReset();
+				break;
         }
 		
 	}
@@ -134,12 +140,25 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+	void MoveToReset() 
+	{
+		playerMat.color = glowColor;
+		resetPoint.y = transform.position.y;
+		rigid.velocity = (resetPoint - transform.position).normalized * resetSpeed;
+
+		if (Vector3.Distance(transform.position, resetPoint) < 2) 
+		{
+			rigid.velocity = Vector3.zero;
+			charState = PlayerState.DEFAULT;
+		}
+	}
+
     //"handling" damage
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.tag == "Bullet")
         {
-            if(charState != PlayerState.DODGING && charState != PlayerState.DAMAGED)
+            if(charState != PlayerState.DODGING && charState != PlayerState.DAMAGED && charState != PlayerState.HITBOSS)
             {
                 if (playerHP <= 0)
                 {

@@ -67,10 +67,10 @@ public class BossHP : MonoBehaviour {
         {
             if(Input.GetButton("HitBoss"))
             {
+				canBeHit = false;
                 print("BANG!");
                 HP--;
-                Vector3 pushback = (player.position - transform.position).normalized;
-                player.Translate(pushback * 4);
+				player.GetComponent<PlayerControl>().charState = PlayerControl.PlayerState.HITBOSS;
             }
         }
 
