@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Enemy
   - Boss
+  - Singleton
   layers:
   - Default
   - TransparentFX
