@@ -8,7 +8,7 @@ public class MusicMan : MonoBehaviour {
     public AudioMixer audioGroup;
 	// Use this for initialization
 	void Start () {
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this);
         if(GameObject.FindGameObjectWithTag("Singleton"))
         {
             if(gameObject != GameObject.FindGameObjectWithTag("Singleton"))
@@ -16,7 +16,6 @@ public class MusicMan : MonoBehaviour {
                 Destroy(gameObject);
             }
         }
-		
 	}
 	
 	// Update is called once per frame

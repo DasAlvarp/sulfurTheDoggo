@@ -170,6 +170,7 @@ public class PlayerControl : MonoBehaviour
                 else
                 {
                     print("Damaged");
+					GetComponent<AudioSource>().Play();
                     statelock = damageInvul;
                     charState = PlayerState.DAMAGED;
                     playerHP--;

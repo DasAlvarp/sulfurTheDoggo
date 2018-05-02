@@ -5,18 +5,13 @@ using UnityEngine.UI;
 /*
  * Author: Javier Bernal    
  * Date Created: 
- * Date Modified: 5/1/18 by Alvaro Gudiswitz
+ * Date Modified: 5/1/18 by Aric Hasting
  * Description: This script controls a boss's hp as well as the progress into
  *              different stages of the boss.
  */
 public class BossHP : MonoBehaviour {
 
-    public static int HP = 5;  //boss default HP
-	private bool stage1;        //stage1-4 are set true if that stage is active. only one is true at a time
-	private bool stage2;        
-	private bool stage3;
-	private bool stage4;
-    private bool stage5;
+	private int currentStage = 0;
     public float speed = 1;
     public GameObject prompt;
 
@@ -27,64 +22,24 @@ public class BossHP : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         prompt.SetActive(false);
-		stage1 = true;
-		stage2 = false;
-		stage3 = false;
-		stage4 = false;
-        stage5 = false;
-		SelectStage (0);
+		SelectStage(currentStage);
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        print(HP);
-        // when the boss takes enough damage check and see if the stage needs to change
-        if (HP <= 5 && stage1)
-        {
-            stage1 = false;
-            stage2 = true;
-            SelectStage(1);
-            print("st1");
-        }
-        else if (HP <= 4 && stage2)
-        {
-            stage2 = false;
-            stage3 = true;
-            print("st2");
-            SelectStage(2);
-        }
-        else if (HP <= 3 && stage3)
-        {
-            stage3 = false;
-            stage4 = true;
-            print("st3");
-            SelectStage(3);
-        }
-        else if (HP <= 2 && stage4)
-        {
-            stage4 = false;
-            stage5 = true;
-            print("st4");
-            SelectStage(4);
-        }
-        else if(HP <= 1 && stage5)
-        {
-            print("st5");
-            stages[5].SetActive(true);
-        }
-
+	void Update () { 
         if(canBeHit)
         {
             if(Input.GetButton("HitBoss"))
             {
+				GetComponent<AudioSource>().Play();
 				canBeHit = false;
-                print("BANG!");
-                HP--;
+				currentStage++;
+				SelectStage(currentStage);
 				player.GetComponent<PlayerControl>().charState = PlayerControl.PlayerState.HITBOSS;
             }
         }
-
 	}
+
     // Use this to change the stage to the appropriate one.
 	public void SelectStage(int stg){
         GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
@@ -94,9 +49,9 @@ public class BossHP : MonoBehaviour {
         }
 		for (int i = 0; i < stages.Length; i++) {
 			if (i == stg) {
-				stages [i].SetActive (true);
+				stages[i].SetActive(true);
 			} else {
-				stages [i].SetActive (false);
+				stages[i].SetActive(false);
 			}
 		}
 	}

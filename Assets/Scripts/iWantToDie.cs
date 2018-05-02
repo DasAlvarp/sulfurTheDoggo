@@ -11,11 +11,7 @@ using UnityEngine.SceneManagement;
 
 public class iWantToDie : MonoBehaviour {
     public GameObject boss;
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            Destroy(boss);
-        }
-    }
+	private void Start() {
+		SceneManager.LoadScene(sceneName: "ThankYouScreen");
+	}
 }
